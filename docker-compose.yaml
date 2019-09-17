@@ -1,13 +1,11 @@
 version: "3.1"
-volumes:
-    db-data:
 services:
     mysql:
-      image: mysql:5.6
+      image: mysql:5.7
       container_name: ${PROJECT_NAME}-mysql
       working_dir: /application
       volumes:
-        - db-data:/application
+        - ./docker/db-data:/var/lib/mysql
       environment:
         - MYSQL_ROOT_PASSWORD=docker_root
         - MYSQL_DATABASE=sf4_db
